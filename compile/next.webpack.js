@@ -1,4 +1,4 @@
-const { Compilation, sources } = require("webpack");
+import webpack from "webpack";
 
 export class BannerPlugin {
   constructor(options) {
@@ -10,7 +10,7 @@ export class BannerPlugin {
       compilation.hooks.afterProcessAssets.tap(
         {
           name: "BannerPlugin",
-          stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
+          stage: webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
         },
         (assets) => {
           Object.entries(assets).forEach(([pathname, source]) => {
@@ -20,7 +20,7 @@ export class BannerPlugin {
 
             compilation.updateAsset(
               pathname,
-              new sources.RawSource(this.banner + source.source())
+              new webpack.sources.RawSource(this.banner + source.source())
             );
           });
         }
