@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typescript": "node ./compile/next.typescript.js"
+    "typescript": "node ./compile/next.typescript.mjs"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^14.2.3",

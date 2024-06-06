@@ -7,6 +7,7 @@ import { isPropValid } from "@ranger-theme/utils";
 
 import { ThemeConf } from "@/config/theme.conf";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const shouldForwardProp: any = (
@@ -27,6 +28,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <ThemeProvider theme={ThemeConf.theme}>
           <Header />
           <Component {...pageProps} />
+          <Footer />
         </ThemeProvider>
       </StyleSheetManager>
     </AntdConfigProvider>

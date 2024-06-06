@@ -1,10 +1,13 @@
-const consola = require("consola");
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import url from "url";
+import consola from "consola";
 
 const args = process.argv.slice(2)[0];
 
 const autoTypescript = (filePath) => {
+  const __filename = url.fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
   const dir = path.resolve(__dirname, filePath);
 
   if (fs.existsSync(dir)) {
