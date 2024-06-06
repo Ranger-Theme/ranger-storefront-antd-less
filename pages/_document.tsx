@@ -1,6 +1,6 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
-import type { DocumentContext } from "next/document";
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
+import type { DocumentContext } from 'next/document'
 
 class RangerDocument extends Document {
   render(): JSX.Element {
@@ -12,21 +12,21 @@ class RangerDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
 RangerDocument.getInitialProps = async (ctx: DocumentContext) => {
-  const sheet = new ServerStyleSheet();
-  const originalRenderPage = ctx.renderPage;
+  const sheet = new ServerStyleSheet()
+  const originalRenderPage = ctx.renderPage
 
   try {
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
-      });
+        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />)
+      })
 
-    const initialProps = await Document.getInitialProps(ctx);
+    const initialProps = await Document.getInitialProps(ctx)
 
     return {
       ...initialProps,
@@ -35,11 +35,11 @@ RangerDocument.getInitialProps = async (ctx: DocumentContext) => {
           {initialProps.styles}
           {sheet.getStyleElement()}
         </>
-      ),
-    };
+      )
+    }
   } finally {
-    sheet.seal();
+    sheet.seal()
   }
-};
+}
 
-export default RangerDocument;
+export default RangerDocument

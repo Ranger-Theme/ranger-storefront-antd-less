@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledHeader = styled.header<{
-  padding: number;
+  padding: number
 }>`
   padding: ${(props) => `${props.padding}px`};
 
@@ -20,4 +20,4 @@ export const StyledHeader = styled.header<{
       }
     }
   }
-`;
+`
